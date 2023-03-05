@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: download-and-run-robot-taskrun-
+spec:
+  taskRef:
+    name: download-and-run-robot
+  params:
+    - name: url
+      value: https://raw.githubusercontent.com/mohitbodhija/sample/7f49b5ae10df407e4640c436fa39fe53f6a79f9a/my_tests.robot
+    - name: robot-file
+      value: my_tests.robot
+  workspaces:
+    - name: source
+      emptyDir: {}

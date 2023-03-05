@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.12 on linux)" generated="20230302 11:58:08.332" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="/home/mohitbodhija/Desktop/work/robot-frame-work/curl/test.robot">
+<test id="s1-t1" name="ProductionDefectsData" line="30">
+<kw name="Execution OF Endpoint">
+<arg>${ProductionDefectsData}</arg>
+<doc>Segregation of Params from Each Payload</doc>
+<kw name="Get From Dictionary" library="Collections">
+<var>${method}</var>
+<arg>${key}</arg>
+<arg>method</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.505" level="INFO">${method} = get</msg>
+<status status="PASS" starttime="20230302 11:58:08.505" endtime="20230302 11:58:08.505"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${endpoint}</var>
+<arg>${key}</arg>
+<arg>end_point</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.506" level="INFO">${endpoint} = /ProductionDefectsData/</msg>
+<status status="PASS" starttime="20230302 11:58:08.505" endtime="20230302 11:58:08.506"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${key}[payload]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:08.506" level="INFO">${payload} = [{'start_date': 'Jul%203%2C%202022', 'end_date': 'Aug%208%2C%202022', 'refnum': '', 'metrics': True, 'expected_data': {'content_validation': False}}]</msg>
+<status status="PASS" starttime="20230302 11:58:08.506" endtime="20230302 11:58:08.506"/>
+</kw>
+<kw name="Type Of Object">
+<var>${payload_type}</var>
+<arg>${payload}</arg>
+<doc>Evaluates and returns what is type of Object</doc>
+<try>
+<branch type="TRY">
+<kw name="Evaluate" library="BuiltIn">
+<var>${type_res}</var>
+<arg>type(${object})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230302 11:58:08.507" level="INFO">${type_res} = &lt;class 'list'&gt;</msg>
+<status status="PASS" starttime="20230302 11:58:08.506" endtime="20230302 11:58:08.507"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${type_response}</var>
+<arg>${type_res}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230302 11:58:08.507" level="INFO">${type_response} = &lt;class 'list'&gt;</msg>
+<status status="PASS" starttime="20230302 11:58:08.507" endtime="20230302 11:58:08.507"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.506" endtime="20230302 11:58:08.507"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Set Variable" library="BuiltIn">
+<var>${type_response}</var>
+<arg>none</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230302 11:58:08.507" endtime="20230302 11:58:08.507"/>
+</kw>
+<status status="NOT RUN" starttime="20230302 11:58:08.507" endtime="20230302 11:58:08.507"/>
+</branch>
+<status status="PASS" starttime="20230302 11:58:08.506" endtime="20230302 11:58:08.507"/>
+</try>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${type_response}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20230302 11:58:08.507" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20230302 11:58:08.507" endtime="20230302 11:58:08.507"/>
+</kw>
+<msg timestamp="20230302 11:58:08.508" level="INFO">${payload_type} = &lt;class 'list'&gt;</msg>
+<status status="PASS" starttime="20230302 11:58:08.506" endtime="20230302 11:58:08.508"/>
+</kw>
+<for flavor="IN">
+<var>${each_payload}</var>
+<value>@{payload}</value>
+<iter>
+<var name="${each_payload}">{'start_date': 'Jul%203%2C%202022', 'end_date': 'Aug%208%2C%202022', 'refnum': '', 'metrics': True, 'expected_data': {'content_validation': False}}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_data}</var>
+<arg>${each_payload}[expected_data]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:08.508" level="INFO">${expected_data} = {'content_validation': False}</msg>
+<status status="PASS" starttime="20230302 11:58:08.508" endtime="20230302 11:58:08.508"/>
+</kw>
+<kw name="Remove From Dictionary" library="Collections">
+<arg>${each_payload}</arg>
+<arg>expected_data</arg>
+<doc>Removes the given ``keys`` from the ``dictionary``.</doc>
+<msg timestamp="20230302 11:58:08.508" level="INFO">Removed item with key 'expected_data' and value '{'content_validation': False}'.</msg>
+<status status="PASS" starttime="20230302 11:58:08.508" endtime="20230302 11:58:08.508"/>
+</kw>
+<kw name="Get Dictionary Keys" library="Collections">
+<var>${payload_keys}</var>
+<arg>${each_payload}</arg>
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<msg timestamp="20230302 11:58:08.509" level="INFO">${payload_keys} = ['end_date', 'metrics', 'refnum', 'start_date']</msg>
+<status status="PASS" starttime="20230302 11:58:08.508" endtime="20230302 11:58:08.509"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${parameters}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:08.509" level="INFO">${parameters} = </msg>
+<status status="PASS" starttime="20230302 11:58:08.509" endtime="20230302 11:58:08.509"/>
+</kw>
+<for flavor="IN">
+<var>${each_key}</var>
+<value>@{payload_keys}</value>
+<iter>
+<var name="${each_key}">end_date</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${key_value}</var>
+<arg>${each_payload}</arg>
+<arg>${each_key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.509" level="INFO">${key_value} = Aug%208%2C%202022</msg>
+<status status="PASS" starttime="20230302 11:58:08.509" endtime="20230302 11:58:08.509"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${parameters}</var>
+<arg>${parameters}${each_key}=${key_value}&amp;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 11:58:08.510" level="INFO">${parameters} = end_date=Aug%208%2C%202022&amp;</msg>
+<status status="PASS" starttime="20230302 11:58:08.509" endtime="20230302 11:58:08.510"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.509" endtime="20230302 11:58:08.510"/>
+</iter>
+<iter>
+<var name="${each_key}">metrics</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${key_value}</var>
+<arg>${each_payload}</arg>
+<arg>${each_key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.510" level="INFO">${key_value} = True</msg>
+<status status="PASS" starttime="20230302 11:58:08.510" endtime="20230302 11:58:08.510"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${parameters}</var>
+<arg>${parameters}${each_key}=${key_value}&amp;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 11:58:08.510" level="INFO">${parameters} = end_date=Aug%208%2C%202022&amp;metrics=True&amp;</msg>
+<status status="PASS" starttime="20230302 11:58:08.510" endtime="20230302 11:58:08.510"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.510" endtime="20230302 11:58:08.510"/>
+</iter>
+<iter>
+<var name="${each_key}">refnum</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${key_value}</var>
+<arg>${each_payload}</arg>
+<arg>${each_key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.511" level="INFO">${key_value} = </msg>
+<status status="PASS" starttime="20230302 11:58:08.510" endtime="20230302 11:58:08.511"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${parameters}</var>
+<arg>${parameters}${each_key}=${key_value}&amp;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 11:58:08.511" level="INFO">${parameters} = end_date=Aug%208%2C%202022&amp;metrics=True&amp;refnum=&amp;</msg>
+<status status="PASS" starttime="20230302 11:58:08.511" endtime="20230302 11:58:08.511"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.510" endtime="20230302 11:58:08.511"/>
+</iter>
+<iter>
+<var name="${each_key}">start_date</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${key_value}</var>
+<arg>${each_payload}</arg>
+<arg>${each_key}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:08.512" level="INFO">${key_value} = Jul%203%2C%202022</msg>
+<status status="PASS" starttime="20230302 11:58:08.511" endtime="20230302 11:58:08.512"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${parameters}</var>
+<arg>${parameters}${each_key}=${key_value}&amp;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 11:58:08.512" level="INFO">${parameters} = end_date=Aug%208%2C%202022&amp;metrics=True&amp;refnum=&amp;start_date=Jul%203%2C%202022&amp;</msg>
+<status status="PASS" starttime="20230302 11:58:08.512" endtime="20230302 11:58:08.512"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.511" endtime="20230302 11:58:08.512"/>
+</iter>
+<status status="PASS" starttime="20230302 11:58:08.509" endtime="20230302 11:58:08.512"/>
+</for>
+<kw name="Passing Params To Endpoint">
+<arg>${parameters}</arg>
+<arg>${expected_data}</arg>
+<arg>${environment}</arg>
+<arg>${method}</arg>
+<arg>${endpoint}</arg>
+<doc>Calls Either the "API Post Method" or "API Get Method" Based on Payload Provided Method Value</doc>
+<kw name="Get Url For Environment">
+<var>${env_base_url}</var>
+<arg>${environment}</arg>
+<doc>Selects the Base Url according to the given Environment</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${env_base_url}</var>
+<arg>${Empty}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:08.513" level="INFO">${env_base_url} = </msg>
+<status status="PASS" starttime="20230302 11:58:08.513" endtime="20230302 11:58:08.513"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${environemnt}&quot; == &quot;Staging&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${env_base_url}</var>
+<arg>https://qahub-stg.phenompro.com/drf</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:08.514" level="INFO">${env_base_url} = https://qahub-stg.phenompro.com/drf</msg>
+<status status="PASS" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.513" endtime="20230302 11:58:08.514"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${environemnt}&quot; == &quot;Production&quot;">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=Selected Production Environemnt !!!!.....</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</kw>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${environemnt}&quot; == &quot;Dev&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${env_base_url}</var>
+<arg>https://qahub-dev.phenompro.com/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</kw>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" library="BuiltIn">
+<arg>msg=No Environment is Select !!!!.....Please Select Environement</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</kw>
+<status status="NOT RUN" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</branch>
+<status status="PASS" starttime="20230302 11:58:08.513" endtime="20230302 11:58:08.514"/>
+</if>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${env_base_url}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20230302 11:58:08.514" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20230302 11:58:08.514" endtime="20230302 11:58:08.514"/>
+</kw>
+<msg timestamp="20230302 11:58:08.515" level="INFO">${env_base_url} = https://qahub-stg.phenompro.com/drf</msg>
+<status status="PASS" starttime="20230302 11:58:08.512" endtime="20230302 11:58:08.515"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${bool_exp}</var>
+<arg>"${method}".lower()=="Post".lower()</arg>
+<arg>API Post Method</arg>
+<arg>${env_base_url}</arg>
+<arg>${end_point}</arg>
+<arg>${params}</arg>
+<arg>${expected_status}</arg>
+<arg>ELSE</arg>
+<arg>API Get Method</arg>
+<arg>${env_base_url}</arg>
+<arg>${end_point}</arg>
+<arg>${params}</arg>
+<arg>${expected_status}</arg>
+<arg>${expected_data}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="API Get Method">
+<arg>${env_base_url}</arg>
+<arg>${end_point}</arg>
+<arg>${params}</arg>
+<arg>${expected_status}</arg>
+<arg>${expected_data}</arg>
+<doc>Executes the End point if Method is GET and Return Response by Validating Response Status</doc>
+<kw name="Access Token">
+<doc>Returns Bearer Token for Provided Base URL</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>get_api_res</arg>
+<arg>url=${base_url}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 11:58:08.516" level="INFO">Creating Session using : alias=get_api_res, url=https://qahub-stg.phenompro.com/drf, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 11:58:08.515" endtime="20230302 11:58:08.516"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>get_api_res</arg>
+<arg>url=${base_url}/register_user/</arg>
+<arg>data=&amp;{auth_body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 11:58:10.046" level="INFO">POST Request : url=https://qahub-stg.phenompro.com/drf/register_user/ 
+ path_url=/drf/register_user/ 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '231', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=username=srikanth.bongoni%40phenompeple.com&amp;email=srikanth.bongoni%40phenompeple.com&amp;useremail=srikanth.bongoni%40phenompeple.com&amp;password=2222&amp;password2=2222&amp;first_name=%22%22&amp;last_name=%22%22&amp;qahub_user=%22%22&amp;access_roles=%22%22 
+ </msg>
+<msg timestamp="20230302 11:58:10.047" level="INFO">POST Response : url=https://qahub-stg.phenompro.com/drf/register_user/ 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 02 Mar 2023 06:28:09 GMT', 'Content-Type': 'application/json', 'Content-Length': '660', 'Connection': 'keep-alive', 'Allow': 'POST, OPTIONS', 'Referrer-Policy': 'same-origin', 'Vary': 'Accept, Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY'} 
+ body={"refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3NzgyNDg4OSwiaWF0IjoxNjc3NzM4NDg5LCJqdGkiOiIxNjk4ZDVlZGNkMTM0NDA0YjlhZTE2NTUwMDNiMDEyNCIsInVzZXJfaWQiOjM3fQ.qAu0N0Cr3cSzBbRFe9cpWt5wr9amwz_O-MnoUBZDoMk","access":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmNTRmOTViZDRkOWE4NGVjYzkzNTA5IiwidXNlcl9pZCI6Mzd9.I_1ajTrXq5aCYF65gKjSbrFoqf2LZobbiYSvM8KQwgk","user":{"username":"srikanth.bongoni@phenompeple.com","email":"srikanth.bongoni@phenompeple.com","password":"2222","password2":"2222","first_name":"\"\"","last_name":"\"\""}} 
+ </msg>
+<msg timestamp="20230302 11:58:10.047" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 11:58:08.516" endtime="20230302 11:58:10.047"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230302 11:58:10.048" endtime="20230302 11:58:10.049"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${bearer_token}</var>
+<arg>${resp.json()}</arg>
+<arg>access</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230302 11:58:10.053" level="INFO">${bearer_token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmNTRmOTViZDRkOWE4NGVjYzkzNTA5IiwidXNlcl9pZCI6Mzd9.I_1ajTrXq5aCYF...</msg>
+<status status="PASS" starttime="20230302 11:58:10.049" endtime="20230302 11:58:10.053"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${bearer_token}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230302 11:58:10.054" level="INFO">${bearer_token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmNTRmOTViZDRkOWE4NGVjYzkzNTA5IiwidXNlcl9pZCI6Mzd9.I_1ajTrXq5aCYF...</msg>
+<status status="PASS" starttime="20230302 11:58:10.053" endtime="20230302 11:58:10.055"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.515" endtime="20230302 11:58:10.055"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Access Token}</var>
+<arg>Bearer ${bearer_token}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230302 11:58:10.056" level="INFO">${Access Token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmNTRmOTViZDRkOWE4NGVjYzkzNTA5IiwidXNlcl9pZCI6Mzd9.I_1ajTr...</msg>
+<status status="PASS" starttime="20230302 11:58:10.055" endtime="20230302 11:58:10.056"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${Access Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230302 11:58:10.058" level="INFO">${headers} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmN...</msg>
+<status status="PASS" starttime="20230302 11:58:10.057" endtime="20230302 11:58:10.058"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>api_get_method</arg>
+<arg>${base_url}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230302 11:58:10.059" level="INFO">Creating Session using : alias=api_get_method, url=https://qahub-stg.phenompro.com/drf, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230302 11:58:10.058" endtime="20230302 11:58:10.059"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${final_url}</var>
+<arg>SEPARATOR=${base_url}</arg>
+<arg>${end_point}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230302 11:58:10.061" level="INFO">${final_url} = /ProductionDefectsData/</msg>
+<status status="PASS" starttime="20230302 11:58:10.060" endtime="20230302 11:58:10.061"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${res}</var>
+<arg>api_get_method</arg>
+<arg>${final_url}</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${expected_status}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230302 11:58:12.863" level="INFO">GET Request : url=https://qahub-stg.phenompro.com/drf/ProductionDefectsData/?end_date=Aug%208%2C%202022&amp;metrics=True&amp;refnum=&amp;start_date=Jul%203%2C%202022&amp; 
+ path_url=/drf/ProductionDefectsData/?end_date=Aug%208%2C%202022&amp;metrics=True&amp;refnum=&amp;start_date=Jul%203%2C%202022&amp; 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzQyMDg5LCJpYXQiOjE2Nzc3Mzg0ODksImp0aSI6IjQ3YmQxMzMyZWVmNTRmOTViZDRkOWE4NGVjYzkzNTA5IiwidXNlcl9pZCI6Mzd9.I_1ajTrXq5aCYF65gKjSbrFoqf2LZobbiYSvM8KQwgk'} 
+ body=None 
+ </msg>
+<msg timestamp="20230302 11:58:12.865" level="INFO">GET Response : url=https://qahub-stg.phenompro.com/drf/ProductionDefectsData/?end_date=Aug%208%2C%202022&amp;metrics=True&amp;refnum=&amp;start_date=Jul%203%2C%202022&amp; 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 02 Mar 2023 06:28:11 GMT', 'Content-Type': 'application/json', 'Content-Length': '653699', 'Connection': 'keep-alive', 'Allow': 'GET, HEAD, OPTIONS', 'Referrer-Policy': 'same-origin', 'Vary': 'Accept, Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY'} 
+ body={"data": "[{\"id\":1480,\"ticket_id\":\"SUP-49348\",\"summary\":\"Incorrect fonts on live site\",\"status\":\"Closed\",\"client\":\"ConvaTec\",\"components\":\"UI Issues\",\"severity\":\"S2 (Critical)\",\"swi_priority\":\"P2\",\"customer_segment\":\"Premier Plus\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"CMS - UI Issues\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1656979200000,\"analysis_on\":null,\"updated_on\":1659950916909,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":0},{\"id\":1484,\"ticket_id\":\"SUP-49360\",\"summary\":\"Error message and no candidate data\",\"status\":\"Open\",\"client\":\"Straumann Group\",\"components\":\"CRM\",\"severity\":\"S1 (Blocker)\",\"swi_priority\":\"P0\",\"customer_segment\":\"Enterprise\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":\"CRM - Core\",\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":null,\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"CRM\",\"created_on\":1656979200000,\"analysis_on\":null,\"updated_on\":1657703958538,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":1},{\"id\":1482,\"ticket_id\":\"SUP-49355\",\"summary\":\"Urgent - location listed in II\",\"status\":\"Closed\",\"client\":\"SAP\",\"components\":\"Scheduling\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"Enterprise Plus\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":null,\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1656979200000,\"analysis_on\":null,\"updated_on\":1658309757145,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":2},{\"id\":1485,\"ticket_id\":\"SUP-49358\",\"summary\":\"CRM : Additional Mapped Fields : Unable to see the data in stag after applied the job\",\"status\":\"In Production\",\"client\":\"HealthChannels\",\"components\":\"Implementation\",\"severity\":\"S4 (Minor)\",\"swi_priority\":\"P4\",\"customer_segment\":\"\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"CRM\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1656979200000,\"analysis_on\":null,\"updated_on\":1657770470279,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":3},{\"id\":2098,\"ticket_id\":\"SUP-50361\",\"summary\":\"Update email is not working\",\"status\":\"Closed\",\"client\":\"Thrive Pet Care (fka Pathway Vets)\",\"components\":\"Service Hub\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P1\",\"customer_segment\":\"Premier\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":1661466288000,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":\"Clarification\",\"issue_subcategory\":\"Clarification\",\"product_categorization\":\"CRM - Other\",\"qamiss\":\"No\",\"qa_validation\":\"No\",\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":\"Seems there is already an another ticket w.r.t the same issue. you can track the status there. Here is the ticket  https:\\/\\/phenompeople.atlassian.net\\/browse\\/SUP-50307\",\"resolved_by_team\":\"\",\"created_on\":1658620800000,\"analysis_on\":1661459306000,\"updated_on\":1662050101957,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":4},{\"id\":1933,\"ticket_id\":\"SUP-50029\",\"summary\":\"Request for access to Looker\",\"status\":\"Closed\",\"client\":\"\",\"components\":\"Service Hub\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"\",\"qaassignee\":\"Ravi Kiran Sandri\",\"qaassigneeid\":\"557058:fab86d01-d09b-4658-a7f3-8b1907b8c209\",\"qaassigneemail\":\"ravikiran.sandri@phenompeople.com\",\"qa_assignee_on\":1661461778000,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":\"Code Fix\",\"issue_subcategory\":\"Code Fix\",\"product_categorization\":\"CRM - Other\",\"qamiss\":\"No\",\"qa_validation\":\"Yes\",\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":\"verified and fixed\",\"resolved_by_team\":\"\",\"created_on\":1658102400000,\"analysis_on\":1661461779000,\"updated_on\":1661442452433,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":5},{\"id\":1742,\"ticket_id\":\"SUP-49679\",\"summary\":\"Apply issue - Hugoboss\",\"status\":\"Closed\",\"client\":\"Hugo Boss\",\"components\":\"Apply\",\"severity\":\"S1 (Blocker)\",\"swi_priority\":\"P1\",\"customer_segment\":\"Enterprise\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"Apply - Not able to Apply\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1657497600000,\"analysis_on\":null,\"updated_on\":1661422937605,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":6},{\"id\":2359,\"ticket_id\":\"SUP-50825\",\"summary\":\"blue banner with a text is not visible on desktop\",\"status\":\"Closed\",\"client\":\"CSU(Endouble)\",\"components\":\"UI Issues\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"Premier\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"CMS - Banner\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1659484800000,\"analysis_on\":null,\"updated_on\":1662390406570,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":7},{\"id\":1792,\"ticket_id\":\"SUP-49786\",\"summary\":\"LinkedIn - Interface\\/ Connection\",\"status\":\"Closed\",\"client\":\"Hugo Boss\",\"components\":\"Implementation\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"Enterprise\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"SEO\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1657670400000,\"analysis_on\":null,\"updated_on\":1659434371188,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":8},{\"id\":1741,\"ticket_id\":\"SUP-49677\",\"summary\":\"Cannot add Video Assessment to requisition\",\"status\":\"Closed\",\"client\":\"BMO Financial Group\",\"components\":\"Video\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"Enterprise Plus\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"Video Assessment\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1657497600000,\"analysis_on\":null,\"updated_on\":1660062594604,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":9},{\"id\":1738,\"ticket_id\":\"SUP-49676\",\"summary\":\"blog post not working URGENT\",\"status\":\"Closed\",\"client\":\"Conmed Corporation\",\"components\":\"CMS\",\"severity\":\"S2 (Critical)\",\"swi_priority\":\"P2\",\"customer_segment\":\"Premier\",\"qaassignee\":\"Suhas Dindukurthi\",\"qaassigneeid\":\"557058:b93c0691-e76f-47f9-b25f-ebcb30678be4\",\"qaassigneemail\":\"suhas.dindukurthi@phenompeople.com\",\"qa_assignee_on\":1659464939000,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":\"CMS\",\"issue_subcategory\":null,\"product_categorization\":\"CMS - Content\",\"qamiss\":\"No\",\"qa_validation\":\"Yes\",\"type_issue\":\"configuration issue\",\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1657497600000,\"analysis_on\":null,\"updated_on\":1659950907000,\"defect_type\":\"sup\",\"impl_service\":null,\"key\":10},{\"id\":1810,\"ticket_id\":\"SUP-49809\",\"summary\":\"Statistics not showing on campaigns\",\"status\":\"Closed\",\"client\":\"ConvaTec\",\"components\":\"Analytics\",\"severity\":\"S3 (Major)\",\"swi_priority\":\"P3\",\"customer_segment\":\"Premier Plus\",\"qaassignee\":\"\",\"qaassigneeid\":\"\",\"qaassigneemail\":\"\",\"qa_assignee_on\":null,\"test_case_id\":\"\",\"testcaseid_linked_on\":null,\"sub_component\":null,\"issue_category\":null,\"issue_subcategory\":null,\"product_categorization\":\"Analytics - Other\",\"qamiss\":null,\"qa_validation\":null,\"type_issue\":null,\"preventive_action\":null,\"additional_comments\":null,\"resolved_by_team\":\"\",\"created_on\":1657670400000,\"analysis... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20230302 11:58:12.866" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230302 11:58:10.061" endtime="20230302 11:58:12.866"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.515" endtime="20230302 11:58:12.867"/>
+</kw>
+<msg timestamp="20230302 11:58:12.867" level="INFO">${bool_exp} = None</msg>
+<status status="PASS" starttime="20230302 11:58:08.515" endtime="20230302 11:58:12.867"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.512" endtime="20230302 11:58:12.867"/>
+</kw>
+<status status="PASS" starttime="20230302 11:58:08.508" endtime="20230302 11:58:12.867"/>
+</iter>
+<status status="PASS" starttime="20230302 11:58:08.508" endtime="20230302 11:58:12.868"/>
+</for>
+<status status="PASS" starttime="20230302 11:58:08.505" endtime="20230302 11:58:12.868"/>
+</kw>
+<doc>Executing API ProductionDefectsData</doc>
+<tag>API,GET</tag>
+<status status="PASS" starttime="20230302 11:58:08.504" endtime="20230302 11:58:12.868"/>
+</test>
+<status status="PASS" starttime="20230302 11:58:08.333" endtime="20230302 11:58:12.870"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">API,GET</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,897 @@
+ProductionDefectsData:
+  end_point: /ProductionDefectsData/
+  method: get
+  payload:
+    - start_date: Jul%203%2C%202022
+      end_date: Aug%208%2C%202022
+      refnum: ""
+      metrics: true
+      expected_data:
+        content_validation: False
+
+# ProductionDefectsDataUpdate:
+#   end_point: /ProductionDefectsDataUpdate/
+#   method: get
+#   payload:
+#   - expected_data:
+#       inprogress
+
+fetch_repeatability_data:
+  end_point: /fetch_repeatability_data/
+  method: get
+  payload:
+    - start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      refnum: ""
+      expected_data:
+        -
+
+fetch_tickets_created_vs_analysis:
+  end_point: /fetch_tickets_created_vs_analysis/
+  method: get
+  payload:
+    - start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      refnum: ""
+      expected_data:
+        content_validation: False
+
+ViolationData:
+  end_point: /ViolationData/
+  method: get
+  payload:
+    - ticket_id: violations
+      start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      refnum: ""
+      expected_data:
+        data:
+          -
+
+pxm_data:
+  end_point: /pxm_data/
+  method: get
+  payload:
+    - start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      refnum: ""
+      expected_data:
+        content_validation: False
+
+fetch_tickets_created_vs_analysis_pxm:
+  end_point: /fetch_tickets_created_vs_analysis_pxm/
+  method: get
+  payload:
+    - start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      issue_type: Bug
+      refnum: ""
+      expected_data:
+        content_validation: False
+    - start_date: Sep%206%2C%202022
+      end_date: Oct%207%2C%202022
+      issue_type: Bug
+      refnum: FLOWSTUDIO
+      expected_data:
+        content_validation: False
+
+weekly_metrics_pxm:
+  end_point: /weekly_metrics_pxm/
+  method: get
+  payload:
+    - component: All
+      issue_type: Bug
+      expected_data:
+        data:
+          weekly_data:
+            - id: All-2022
+              refnum: All-2022
+              label: All-2022
+              data:
+                - x: W 34
+                  y: 72
+                - x: W 35
+                  y: 34
+                - x: W 36
+                  y: 64
+                - x: W 37
+                  y: 103
+                - x: W 38
+                  y: 165
+                - x: W 39
+                  y: 34
+                - x: ""
+                  y:
+            - id: All-2021
+              refnum: All-2021
+              label: All-2021
+              data:
+                - x: W 34
+                  y: 119
+                - x: W 35
+                  y: 121
+                - x: W 36
+                  y: 146
+                - x: W 37
+                  y: 127
+                - x: W 38
+                  y: 135
+                - x: W 39
+                  y: 119
+                - x: ""
+                  y:
+          monthly_data:
+            - id: All-2022
+              refnum: All-2022
+              label: All-2022
+              data:
+                - x: ""
+                  y:
+                - x: Nov
+                  y: 626
+                - x: Dec
+                  y: 484
+                - x: Jan
+                  y: 567
+                - x: Feb
+                  y: 606
+                - x: Mar
+                  y: 705
+                - x: Apr
+                  y: 618
+                - x: May
+                  y: 664
+                - x: Jun
+                  y: 636
+                - x: Jul
+                  y: 596
+                - x: Aug
+                  y: 744
+                - x: Sep
+                  y: 438
+                - x: Oct
+                  y: 354
+            - id: All-2021
+              refnum: All-2021
+              label: All-2021
+              data:
+                - x: ""
+                  y:
+                - x: Nov
+                  y: 378
+                - x: Dec
+                  y: 381
+                - x: Jan
+                  y: 496
+                - x: Feb
+                  y: 531
+                - x: Mar
+                  y: 646
+                - x: Apr
+                  y: 537
+                - x: May
+                  y: 591
+                - x: Jun
+                  y: 637
+                - x: Jul
+                  y: 527
+                - x: Aug
+                  y: 595
+                - x: Sep
+                  y: 549
+                - x: Oct
+                  y: 548
+
+get_week_date_ranges:
+  end_point: /get_week_date_ranges/
+  method: get
+  payload:
+    - expected_data:
+        content_validation: False
+
+get_user_details:
+  end_point: /get_user_details/
+  method: get
+  payload:
+    - team: All
+      sub_team: All
+      weeks: Week%20-%2036%20(2022-09-30%20-%202022-10-06)&
+      expected_data:
+        - email: purnashekar.thummapudi@phenompeople.com
+          tenants: []
+          name: Purna Shekar Babu T
+          test_cases_added_modified: 0
+          test_cases_automated: 0
+          test_cases_executed: 0
+          defects_raised_from_qahub: 0
+          sign_offs_created: 0
+          defects_raised_in_jira: 1
+        - email: srikanth.bongoni@phenompeople.com
+          tenants:
+            - schema: ARELUS
+              customer_name: Arrow
+          name: Srikanth Bongoni
+          test_cases_added_modified: 19
+          test_cases_automated: 4
+          test_cases_executed: 19
+          defects_raised_from_qahub: 0
+          sign_offs_created: 1
+          defects_raised_in_jira: 0
+
+defect_leakage:
+  end_point: /defect_leakage
+  method: get
+  payload:
+    - expected_data:
+      content_validation: False
+
+test_execution:
+  end_point: /test_execution/
+  method: get
+  payload:
+    - experience: cx
+      component: All
+      expected_data:
+        data:
+          weekly_data:
+            - label: qa
+              id: qa
+              refnum: qa
+              color: ""
+              data:
+                - x: W 34
+                  y: 0
+                - x: W 35
+                  y: 0
+                - x: W 36
+                  y: 0
+                - x: W 37
+                  y: 0
+                - x: W 38
+                  y: 0
+                - x: W 39
+                  y: 0
+                - x: ""
+                  y:
+            - label: stg
+              id: stg
+              refnum: stg
+              color: ""
+              data:
+                - x: W 34
+                  y: 0
+                - x: W 35
+                  y: 0
+                - x: W 36
+                  y: 0
+                - x: W 37
+                  y: 0
+                - x: W 38
+                  y: 0
+                - x: W 39
+                  y: 0
+                - x: ""
+                  y:
+            - label: dev
+              id: dev
+              refnum: dev
+              color: ""
+              data:
+                - x: W 34
+                  y: 0
+                - x: W 35
+                  y: 0
+                - x: W 36
+                  y: 0
+                - x: W 37
+                  y: 0
+                - x: W 38
+                  y: 0
+                - x: W 39
+                  y: 0
+                - x: ""
+                  y:
+            - label: production
+              id: production
+              refnum: production
+              color: ""
+              data:
+                - x: W 34
+                  y: 0
+                - x: W 35
+                  y: 0
+                - x: W 36
+                  y: 0
+                - x: W 37
+                  y: 0
+                - x: W 38
+                  y: 0
+                - x: W 39
+                  y: 0
+                - x: ""
+                  y:
+          monthly_data:
+            - label: qa
+              id: qa
+              refnum: qa
+              color: ""
+              data:
+                - x: ""
+                  y:
+                - x: Nov '21
+                  y: 2
+                - x: Dec '21
+                  y: 0
+                - x: Jan '22
+                  y: 1
+                - x: Feb '22
+                  y: 0
+                - x: Mar '22
+                  y: 2
+                - x: Apr '22
+                  y: 2
+                - x: May '22
+                  y: 24
+                - x: Jun '22
+                  y: 1
+                - x: Jul '22
+                  y: 21
+                - x: Aug '22
+                  y: 0
+                - x: Sep '22
+                  y: 9
+                - x: Oct '22
+                  y: 0
+            - label: stg
+              id: stg
+              refnum: stg
+              color: ""
+              data:
+                - x: ""
+                  y:
+                - x: Nov '21
+                  y: 0
+                - x: Dec '21
+                  y: 0
+                - x: Jan '22
+                  y: 0
+                - x: Feb '22
+                  y: 0
+                - x: Mar '22
+                  y: 0
+                - x: Apr '22
+                  y: 0
+                - x: May '22
+                  y: 0
+                - x: Jun '22
+                  y: 0
+                - x: Jul '22
+                  y: 0
+                - x: Aug '22
+                  y: 0
+                - x: Sep '22
+                  y: 0
+                - x: Oct '22
+                  y: 0
+            - label: dev
+              id: dev
+              refnum: dev
+              color: ""
+              data:
+                - x: ""
+                  y:
+                - x: Nov '21
+                  y: 60
+                - x: Dec '21
+                  y: 13
+                - x: Jan '22
+                  y: 2
+                - x: Feb '22
+                  y: 35
+                - x: Mar '22
+                  y: 0
+                - x: Apr '22
+                  y: 112
+                - x: May '22
+                  y: 645
+                - x: Jun '22
+                  y: 569
+                - x: Jul '22
+                  y: 254
+                - x: Aug '22
+                  y: 195
+                - x: Sep '22
+                  y: 16
+                - x: Oct '22
+                  y: 0
+            - label: production
+              id: production
+              refnum: production
+              color: ""
+              data:
+                - x: ""
+                  y:
+                - x: Nov '21
+                  y: 1
+                - x: Dec '21
+                  y: 0
+                - x: Jan '22
+                  y: 34
+                - x: Feb '22
+                  y: 1
+                - x: Mar '22
+                  y: 0
+                - x: Apr '22
+                  y: 0
+                - x: May '22
+                  y: 1
+                - x: Jun '22
+                  y: 1
+                - x: Jul '22
+                  y: 0
+                - x: Aug '22
+                  y: 0
+                - x: Sep '22
+                  y: 3
+                - x: Oct '22
+                  y: 0
+
+wb_report:
+  end_point: /wb_report/
+  method: get
+  payload:
+    - productFilter: testCases
+      team: all
+      expected_data:
+        weekly_data:
+          - id: Testcases Created
+            label: Testcases Created
+            color: ""
+            data:
+              - x: W 32
+                y: 42
+              - x: W 33
+                y: 164
+              - x: W 34
+                y: 5
+              - x: W 35
+                y: 3
+              - x: W 36
+                y: 20
+              - x: W 37
+                y: 20
+              - x: ""
+                y:
+          - id: Testcases Modified
+            label: Testcases Modified
+            color: ""
+            data:
+              - x: W 32
+                y: 162
+              - x: W 33
+                y: 4
+              - x: W 34
+                y: 13
+              - x: W 35
+                y: 3
+              - x: W 36
+                y: 13
+              - x: W 37
+                y: 13
+              - x: ""
+                y:
+          - id: Testcases Executed
+            label: Testcases Executed
+            color: ""
+            data:
+              - x: W 32
+                y: 1
+              - x: W 33
+                y: 1
+              - x: W 34
+                y: 1
+              - x: W 35
+                y: 2
+              - x: W 36
+                y: 9
+              - x: W 37
+                y: 1
+              - x: ""
+                y:
+          - id: Deleted Testcases
+            label: Deleted Testcases
+            color: ""
+            data:
+              - x: W 32
+                y: 26
+              - x: W 33
+                y: 24
+              - x: W 34
+                y: 1
+              - x: W 35
+                y: 1
+              - x: W 36
+                y: 3
+              - x: W 37
+                y: 1
+              - x: ""
+                y:
+        monthly_data:
+          - id: Testcases Created
+            label: Testcases Created
+            color: ""
+            data:
+              - x: ""
+                y:
+              - x: Nov '21
+                y: 0
+              - x: Dec '21
+                y: 79
+              - x: Jan '22
+                y: 181
+              - x: Feb '22
+                y: 55
+              - x: Mar '22
+                y: 20
+              - x: Apr '22
+                y: 0
+              - x: May '22
+                y: 11
+              - x: Jun '22
+                y: 100
+              - x: Jul '22
+                y: 94
+              - x: Aug '22
+                y: 312
+              - x: Sep '22
+                y: 236
+              - x: Oct '22
+                y: 20
+          - id: Testcases Modified
+            label: Testcases Modified
+            color: ""
+            data:
+              - x: ""
+                y:
+              - x: Nov '21
+                y: 0
+              - x: Dec '21
+                y: 91
+              - x: Jan '22
+                y: 103
+              - x: Feb '22
+                y: 45
+              - x: Mar '22
+                y: 0
+              - x: Apr '22
+                y: 0
+              - x: May '22
+                y: 15
+              - x: Jun '22
+                y: 18
+              - x: Jul '22
+                y: 32
+              - x: Aug '22
+                y: 27
+              - x: Sep '22
+                y: 187
+              - x: Oct '22
+                y: 13
+          - id: Testcases Executed
+            label: Testcases Executed
+            color: ""
+            data:
+              - x: ""
+                y:
+              - x: Nov '21
+                y: 0
+              - x: Dec '21
+                y: 1
+              - x: Jan '22
+                y: 35
+              - x: Feb '22
+                y: 3
+              - x: Mar '22
+                y: 0
+              - x: Apr '22
+                y: 0
+              - x: May '22
+                y: 29
+              - x: Jun '22
+                y: 9
+              - x: Jul '22
+                y: 24
+              - x: Aug '22
+                y: 0
+              - x: Sep '22
+                y: 15
+              - x: Oct '22
+                y: 10
+          - id: Deleted Testcases
+            label: Deleted Testcases
+            color: ""
+            data:
+              - x: ""
+                y:
+              - x: Nov '21
+                y: 14
+              - x: Dec '21
+                y: 7
+              - x: Jan '22
+                y: 49
+              - x: Feb '22
+                y: 45
+              - x: Mar '22
+                y: 0
+              - x: Apr '22
+                y: 0
+              - x: May '22
+                y: 0
+              - x: Jun '22
+                y: 42
+              - x: Jul '22
+                y: 31
+              - x: Aug '22
+                y: 163
+              - x: Sep '22
+                y: 53
+              - x: Oct '22
+                y: 4
+
+fetch_phem_sprints:
+  end_point: /fetch_phem_sprints/
+  method: get
+  payload:
+    - expected_data:
+        -
+
+get_kpi_values:
+  end_point: /get_kpi_values/
+  method: get
+  payload:
+    - expected_data:
+        accessibility: Platform Usage - Accessibility
+        platform_coverage: TXM Coverage Aspects
+        platform_usage_internal_products: Platform Usage - Product QA
+        platform_usage_qa: Platform Usage - QA
+        platform_usage_tenants: Platform Usage - Implementation QA
+        platform_usage_uat: UAT Defects
+        total_production_defects: Productions Defects Metrics
+
+activity_log:
+  end_point: /activity_log/
+  method: get
+  payload:
+    - expected_data:
+        content_validation: False
+
+delete_notification:
+  end_point: /delete_notification/
+  method: get
+  payload:
+    - id: 1172
+      username: Srikanth%20Bongoni
+      expected_data: success
+
+mark_all_as_read:
+  end_point: /mark_all_as_read/
+  method: get
+  payload:
+    - username: Srikanth%20Bongoni
+      expected_data: success
+
+get_tenant_data:
+  end_point: /get_tenant_data/
+  method: get
+  payload:
+    - expected_data:
+        content_validation: False
+
+zbb:
+  end_point: /zbb/
+  method: get
+  payload:
+    - name: JOBSYNC
+      start_date: 2022-10-24
+      end_date: 2022-10-27
+      expected_data:
+        - id: Open Defects
+          label: Open Defects
+          color: "#c1a5ff"
+          data:
+            - x: 1
+              y: 0
+            - x: 2
+              y: 0
+            - x: 3
+              y: 0
+            - x: 4
+              y: 0
+
+#s-curve
+get_theoretical_curve:
+  end_point: /get_theoretical_curve/
+  method: get
+  payload:
+    - name: JOBSYNC
+      start_date: 2022-09-26
+      end_date: 2022-10-25
+      expected_data:
+        - data:
+            - x: 1
+              y: 0
+          label: Theoretical Curve
+          id: Theoretical Curve
+          color: "#c1a5ff"
+        - id: Defects
+          label: Passed Test Cases
+          color: "#88e594"
+          data:
+            - x: 1
+              y: 0
+
+get_passed_data_for_curve:
+  end_point: /JOBSYNC/get_passed_data_for_curve/
+  method: get
+  payload:
+    - name: JOBSYNC
+      start_date: 2022-09-26
+      end_date: 2022-10-25
+      expected_data:
+        content_validation: False
+
+fetch_sup_component_options:
+  end_point: /fetch_sup_component_options/
+  method: get
+  payload:
+    - ticket_id: SUP-54979
+      expected_data:
+        content_validation: False
+
+signoff_fetch_testruns:
+  end_point: /QAHUB/signoff-fetch-testruns
+  method: get
+  payload:
+    - testrun_environment: dev
+      phenom_experience_list: ix
+      project_id: 2c7d71af-8a37-446b-a0eb-519854d9f793
+      expected_data:
+        data:
+          - Test_Run_id: fa87caee-3a55-422e-8439-409b0159253e
+            Test_Run_name: Sample Run
+            module_name: settings
+            added_on: "2022-04-05T11:00:00.822Z"
+            run_on: "2022-04-05T11:00:08.237Z"
+            defects_count: 1
+            displayName: Sample Run
+            groupDisplayName: settings
+            groupValue: settings
+            value: fa87caee-3a55-422e-8439-409b0159253e
+          - Test_Run_id: 4f0182ea-76d8-4b33-97ac-f1497b16de91
+            Test_Run_name: Test Run for Settings Tab
+            module_name: settings
+            added_on: "2022-04-05T11:39:45.285Z"
+            run_on: "2022-04-05T11:40:15.196Z"
+            defects_count: 1
+            displayName: Test Run for Settings Tab
+            groupDisplayName: settings
+            groupValue: settings
+            value: 4f0182ea-76d8-4b33-97ac-f1497b16de91
+
+fetch_security_scan_lst:
+  end_point: /fetch_security_scan_lst/
+  method: get
+  payload:
+    - tenant: arelus
+      expected_data:
+        -
+refresh_materialized_views:
+  end_point: /refresh_materialized_views/
+  method: get
+  payload:
+    - expected_data:
+        -
+testrunwidget:
+  end_point: /CNEXEMEA/testrunwidget
+  method: get
+  payload:
+    - trid: 9aac479d-1027-4bd3-8850-fd08bd7b0d3c
+      expected_data:
+        content_validation: False
+    - trid: 678488b8-0052-4364-8abb-1420516da195
+      expected_data:
+        content_validation: False
+
+fetch_security_scan_data:
+  end_point: /fetch_security_scan_data/
+  method: get
+  payload:
+    - expected_data:
+        -
+
+utility_download_artifacts:
+  end_point: /arelus/utility_download_artifacts
+  method: get
+  payload:
+    - test_run_id: 608f6edf-931d-4ae7-ae86-e0012011bd87
+      job_name: Career Site - Blogs
+      expected_data:
+        content_validation: False #as no data is returned
+    - test_run_id: 608f6edf-931d-4ae7-ae86-e0012011bd87
+      job_name: ""
+      expected_data:
+        content_validation: False #as no data is returned
+
+specific_tc_log:
+  end_point: /arelus/specific_tc_log
+  method: get
+  payload:
+    - test_run_id: 608f6edf-931d-4ae7-ae86-e0012011bd87
+      test_case_id: test_csb_ts01_tc04
+      expected_data:
+        content_validation: False #as no data is returned
+
+update_test_summary:
+  end_point: /update_test_summary
+  method: get
+  payload:
+    - expected_data:
+        content_validation: False
+
+PerformAnalysisData:
+  end_point: /PerformAnalysisData/
+  method: get
+  payload:
+    - ticket_id: SUP-44119
+      expected_data:
+        content_validation: False
+
+get_closed_date:
+  end_point: /get_closed_date/
+  method: get
+  payload:
+    - expected_data:
+        content_validation: False
+
+fetch_config_data:
+  end_point: /arelus/fetch_config_data
+  method: get
+  payload:
+    - url: "https://careers.arrow.com/"
+      config_type: footer
+      username: Srikanth%20Bongoni
+      experience: cx
+      expected_data:
+        content_validation: False
+
+config_data:
+  end_point: /arelus/config_data
+  method: get
+  payload:
+    - experience: cx
+      config_type: footer
+      username: Srikanth%20Bongoni
+      expected_data:
+        content_validation: False
+
+feature_flag:
+  end_point: /feature_flag/
+  method: get
+  payload:
+    - email: srikanth.bongoni%40phenompeople.com
+      expected_data:
+        content_validation: False
+
+dump_wcag_rules:
+  end_point: /dump_wcag_rules
+  method: get
+  payload:
+    - expected_data:
+        -
+
+sku_manager_detailed:
+  end_point: /sku-manager-detailed
+  method: get
+  payload:
+    - sku_id: " "
+      expected_data:

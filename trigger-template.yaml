@@ -1,0 +1,26 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: hello-template
+spec:
+  params:
+    - name: url
+      default: "https://raw.githubusercontent.com/mohitbodhija/sample/7f49b5ae10df407e4640c436fa39fe53f6a79f9a/my_tests.robot"
+    - name: robot-file
+      default: "my_tests.robot"
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: TaskRun
+      metadata:
+        generateName: download-and-run-robot-taskrun-
+      spec:
+        taskRef:
+          name: download-and-run-robot
+        params:
+          - name: url
+            value: $(tt.params.url)
+          - name: robot-file
+            value: $(tt.params.robot-file)
+        workspaces:
+          - name: source
+            emptyDir: {}

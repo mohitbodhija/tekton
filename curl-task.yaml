@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: download-and-run-robot
+spec:
+  workspaces:
+    - name: source
+      description: A workspace containing .robot test files
+  params:
+    - name: url
+      type: string
+    - name: robot-file
+      type: string
+  steps:
+    - name: download-file
+      image: curlimages/curl
+      command:
+        - sh
+        - -c
+        - "curl -L $(params.url) --output $(workspaces.source.path)/$(params.robot-file)"
+    - name: run-robot-framework-test
+      image: robotframework/rfdocker:latest
+      command: ["robot"]
+      args:
+        - $(workspaces.source.path)/$(params.robot-file)
+      timeout: "30m"
